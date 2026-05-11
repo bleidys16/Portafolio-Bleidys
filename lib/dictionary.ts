@@ -59,6 +59,13 @@ export const dictionary = {
           tags: ['Next.js', 'TypeScript', 'Tailwind'],
           link: 'https://manjares-del-campo.vercel.app/',
           repo: 'https://github.com/bleidys16/ManjaresdelCampo'
+        },
+        {
+          title: 'Analyzor',
+          description: 'Herramienta avanzada de análisis de datos con IA para visualizar y procesar conjuntos de datos complejos mediante consultas en lenguaje natural.',
+          tags: ['Next.js', 'PostgreSQL', 'OpenAI', 'Drizzle'],
+          link: 'https://github.com/bleidys16/Analyzor',
+          repo: 'https://github.com/bleidys16/Analyzor'
         }
       ]
     },
@@ -164,6 +171,13 @@ export const dictionary = {
           tags: ['Next.js', 'TypeScript', 'Tailwind'],
           link: 'https://manjares-del-campo.vercel.app/',
           repo: 'https://github.com/bleidys16/ManjaresdelCampo'
+        },
+        {
+          title: 'Analyzor',
+          description: 'Advanced AI-powered data analysis tool to visualize and process complex datasets through natural language queries.',
+          tags: ['Next.js', 'PostgreSQL', 'OpenAI', 'Drizzle'],
+          link: 'https://github.com/bleidys16/Analyzor',
+          repo: 'https://github.com/bleidys16/Analyzor'
         }
       ]
     },

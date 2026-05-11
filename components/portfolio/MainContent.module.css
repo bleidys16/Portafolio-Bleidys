@@ -63,14 +63,18 @@
 .section {
   margin-bottom: 60px;
   padding-top: 20px;
+  content-visibility: auto; /* Optimization for scroll performance */
+  contain-intrinsic-size: 1px 500px;
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(50px);
-  filter: blur(8px);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, filter;
+  transform: translateY(30px); /* Reduced movement for smoother feel */
+  filter: blur(4px); /* Reduced blur from 8px to 4px for performance */
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
 }
 
 .visible {
@@ -230,6 +234,22 @@
 
 .projectCard:hover .projectImage {
   transform: scale(1.08);
+}
+
+.analyzorIcon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  color: var(--color-accent-purple);
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .analyzorIcon {
+  transform: scale(1.1);
+  color: var(--color-accent-violet);
 }
 
 .projectImagePlaceholder span {

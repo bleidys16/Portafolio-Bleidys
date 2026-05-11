@@ -46,31 +46,7 @@
   align-items: center;
 }
 
-/* El láser rotatorio */
-.avatarWrapper::before {
-  content: '';
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 80%,
-    var(--color-accent-purple) 100%
-  );
-  animation: rotateLaser 2s linear infinite; /* Un poco más rápido para efecto tecnológico */
-  filter: blur(2px);
-}
-
-@keyframes rotateLaser {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* El borde morado sólido con resplandor */
 .avatar {
   width: 135px;
   height: 135px;
@@ -80,9 +56,16 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 2px solid rgba(168, 85, 247, 0.2); /* Borde base tenue */
+  border: 3px solid var(--color-accent-purple); /* Borde morado sólido */
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); /* Resplandor exterior */
   position: relative;
   z-index: 2;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
 }
 
 /* Sombra de apoyo para el resplandor */
@@ -241,19 +224,10 @@
     height: 80px;
   }
 
-  .avatarWrapper::before {
-    width: 86px; /* Ajustado para el avatar de 80px */
-    height: 86px;
-    filter: blur(1px); /* Menos blur en móvil para que sea más fino */
-  }
-
   .avatar {
     width: 80px;
     height: 80px;
-  }
-
-  .avatarText {
-    font-size: 28px;
+    border-width: 2px;
   }
 
   .statusDot {

@@ -36,6 +36,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+import { CustomCursor } from '@/components/ui/CustomCursor'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,6 +47,7 @@ export default function RootLayout({
     <html lang="es" className={`${pixelifySans.variable} ${rubik.variable}`}>
       <body>
         <LanguageProvider>
+          <CustomCursor />
           {children}
           {process.env.NODE_ENV === 'production' && <Analytics />}
         </LanguageProvider>

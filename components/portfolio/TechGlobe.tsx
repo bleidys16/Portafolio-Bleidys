@@ -113,11 +113,11 @@ export default function TechGlobe() {
       return false
     }
 
-    const generateDotsInPolygon = (feature: any, dotSpacing = 16) => {
+    const generateDotsInPolygon = (feature: any, dotSpacing = 22) => { // Increased spacing from 16 to 22
       const dots: [number, number][] = []
       const bounds = d3.geoBounds(feature)
       const [[minLng, minLat], [maxLng, maxLat]] = bounds
-      const stepSize = dotSpacing * 0.12 // Adjusted for better density
+      const stepSize = dotSpacing * 0.15 
 
       for (let lng = minLng; lng <= maxLng; lng += stepSize) {
         for (let lat = minLat; lat <= maxLat; lat += stepSize) {
@@ -132,6 +132,7 @@ export default function TechGlobe() {
     let landFeatures: any
 
     const render = () => {
+      if (!context) return
       context.clearRect(0, 0, width, height)
       const currentScale = projection.scale()
       const scaleFactor = currentScale / radius
@@ -139,29 +140,21 @@ export default function TechGlobe() {
       // Draw background globe
       context.beginPath()
       context.arc(width / 2, height / 2, currentScale, 0, 2 * Math.PI)
-      context.fillStyle = "#0a0a0a"
+      context.fillStyle = "#000000"
       context.fill()
 
       // Subtle purple glow for the globe border
-      context.strokeStyle = "rgba(168, 85, 247, 0.4)"
-      context.lineWidth = 1.5 * scaleFactor
-      context.stroke()
-
-      // Draw graticule (The lines)
-      const graticule = d3.geoGraticule()
-      context.beginPath()
-      path(graticule())
-      context.strokeStyle = "rgba(168, 85, 247, 0.2)"
-      context.lineWidth = 0.5 * scaleFactor
+      context.strokeStyle = "rgba(168, 85, 247, 0.3)"
+      context.lineWidth = 1 * scaleFactor
       context.stroke()
 
       // Draw land-based dots (The halftone dots)
-      context.fillStyle = "rgba(168, 85, 247, 0.4)"
+      context.fillStyle = "rgba(168, 85, 247, 0.35)"
       allDots.forEach((dot) => {
         const projected = projection([dot.lng, dot.lat])
         if (projected) {
           context.beginPath()
-          context.arc(projected[0], projected[1], 1 * scaleFactor, 0, 2 * Math.PI)
+          context.arc(projected[0], projected[1], 0.8 * scaleFactor, 0, 2 * Math.PI)
           context.fill()
         }
       })
@@ -182,7 +175,6 @@ export default function TechGlobe() {
       techPositionsRef.current.forEach(({ tech, lng, lat }) => {
         const projected = projection([lng, lat])
         
-        // D3 projection returns null if the point is clipped (on the back side)
         if (projected) {
           const [px, py] = projected
           const img = imagesRef.current.get(tech.slug)
@@ -192,44 +184,40 @@ export default function TechGlobe() {
             const dy = py - height / 2
             const dist = Math.sqrt(dx * dx + dy * dy)
             
-            // Fade out as it approaches the edge to satisfy "NO A LOS LADOS"
-            const edgeFade = Math.pow(Math.max(0, 1 - (dist / currentScale)), 1.2)
-            const alpha = edgeFade * 1.6 // Increased visibility
+            const edgeFade = Math.pow(Math.max(0, 1 - (dist / currentScale)), 1.5)
+            const alpha = edgeFade * 1.5
             
             if (alpha > 0.1) {
-              // Draw slightly towards the center for a "DENTRO" (submerged) look
-              const depthFactor = 0.96
+              const depthFactor = 0.97
               const sx = width / 2 + dx * depthFactor
               const sy = height / 2 + dy * depthFactor
               
-              // More aggressive scaling for depth sensation (Video 2 style)
-              const size = 58 * scaleFactor * (0.6 + alpha * 0.4)
+              const size = 52 * scaleFactor * (0.7 + alpha * 0.3)
 
               context.save()
               context.globalAlpha = Math.min(1, alpha)
 
-              // Atmospheric glow (No hexagons to preserve dots)
               context.beginPath()
-              context.arc(sx, sy, size * 0.75, 0, 2 * Math.PI)
+              context.arc(sx, sy, size * 0.6, 0, 2 * Math.PI)
               const r = parseInt(tech.color.slice(0, 2), 16) || 168
               const g = parseInt(tech.color.slice(2, 4), 16) || 85
               const b = parseInt(tech.color.slice(4, 6), 16) || 247
               
-              const gradient = context.createRadialGradient(sx, sy, 0, sx, sy, size * 0.75)
-              gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.3)`)
+              const gradient = context.createRadialGradient(sx, sy, 0, sx, sy, size * 0.6)
+              gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.2)`)
               gradient.addColorStop(1, "rgba(0, 0, 0, 0)")
               context.fillStyle = gradient
               context.fill()
 
               context.drawImage(img, sx - size / 2, sy - size / 2, size, size)
 
-              if (alpha > 0.5) {
+              if (alpha > 0.6) {
                 context.fillStyle = "white"
-                context.font = `bold ${Math.round(11 * scaleFactor)}px Inter, system-ui, sans-serif`
+                context.font = `500 ${Math.round(10 * scaleFactor)}px var(--font-body)`
                 context.textAlign = "center"
-                context.shadowColor = "rgba(0,0,0,0.8)"
-                context.shadowBlur = 6
-                context.fillText(tech.name, sx, sy + size * 0.9)
+                context.shadowColor = "rgba(0,0,0,0.5)"
+                context.shadowBlur = 4
+                context.fillText(tech.name, sx, sy + size * 0.85)
               }
               
               context.restore()
@@ -245,7 +233,7 @@ export default function TechGlobe() {
         if (!response.ok) throw new Error("Failed load")
         landFeatures = await response.json()
         landFeatures.features.forEach((feature: any) => {
-          generateDotsInPolygon(feature, 16).forEach(([lng, lat]) => {
+          generateDotsInPolygon(feature, 22).forEach(([lng, lat]) => {
             allDots.push({ lng, lat })
           })
         })
@@ -259,14 +247,10 @@ export default function TechGlobe() {
 
     const rotateTimer = d3.timer(() => {
       if (!isDraggingRef.current) {
-        // Apply rotation with inertia and hover slowing
-        const targetSpeed = isHoveredRef.current ? 0.05 : 0.35
+        const targetSpeed = isHoveredRef.current ? 0.05 : 0.3
         
-        // Smoothly transition velocity towards target
-        velocityRef.current[0] += (targetSpeed - velocityRef.current[0]) * 0.05
-        
-        // Apply friction to manual momentum
-        velocityRef.current[1] *= 0.95
+        velocityRef.current[0] += (targetSpeed - velocityRef.current[0]) * 0.03 // Smoother transition
+        velocityRef.current[1] *= 0.96 // Smoother friction
         
         rotationRef.current[0] += velocityRef.current[0] + velocityRef.current[1]
         projection.rotate(rotationRef.current)

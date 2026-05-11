@@ -12,6 +12,7 @@ interface CyberTextProps {
 export default function CyberText({ text, highlight, className, highlightClassName }: CyberTextProps) {
   const [displayText, setDisplayText] = useState('')
   const [displayHighlight, setDisplayHighlight] = useState('')
+  const [isComplete, setIsComplete] = useState(false)
 
   useEffect(() => {
     let timeout: NodeJS.Timeout
@@ -27,6 +28,8 @@ export default function CyberText({ text, highlight, className, highlightClassNa
         setDisplayHighlight(highlight.substring(0, highlightIndex))
         highlightIndex++
         timeout = setTimeout(typeText, 40)
+      } else {
+        setIsComplete(true)
       }
     }
 
@@ -40,7 +43,7 @@ export default function CyberText({ text, highlight, className, highlightClassNa
     <h2 className={className}>
       {displayText}
       {highlight && <span className={highlightClassName}>{displayHighlight}</span>}
-      <span className="cursor-blink">|</span>
+      {!isComplete && <span className="cursor-blink">|</span>}
       <style jsx>{`
         .cursor-blink {
           font-weight: 300;
