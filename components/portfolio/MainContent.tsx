@@ -133,9 +133,9 @@ export default function MainContent() {
             <div key={index} className={styles.projectCard}>
               <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.projectImagePlaceholder}>
                 {project.title.toLowerCase().includes('cine') ? (
-                  <img src="/cine.png" alt={project.title} className={styles.projectImage} />
+                  <img src="/cine.png" alt={project.title} className={styles.projectImage} decoding="async" loading="lazy" />
                 ) : project.title.toLowerCase().includes('manjares') ? (
-                  <img src="/manjares.png" alt={project.title} className={styles.projectImage} />
+                  <img src="/manjares.png" alt={project.title} className={styles.projectImage} decoding="async" loading="lazy" />
                 ) : project.title.toLowerCase().includes('analyzor') ? (
                   <div className={styles.analyzorIcon}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="60" height="60">

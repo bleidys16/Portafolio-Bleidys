@@ -1,58 +1,82 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './CustomCursor.module.css'
 
 export function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isPointer, setIsPointer] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const cursorRef = useRef<HTMLDivElement>(null)
+  const followerRef = useRef<HTMLDivElement>(null)
+  const isVisibleRef = useRef(false)
 
   useEffect(() => {
     setMounted(true)
+    
     const onMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e
-      setPosition({ x: clientX, y: clientY })
-      if (!isVisible) setIsVisible(true)
       
-      // Update background glow position
-      document.documentElement.style.setProperty('--mouse-x', `${clientX}px`)
-      document.documentElement.style.setProperty('--mouse-y', `${clientY}px`)
-      
+      if (!isVisibleRef.current) {
+        isVisibleRef.current = true
+        if (cursorRef.current) cursorRef.current.style.opacity = '1'
+        if (followerRef.current) followerRef.current.style.opacity = '1'
+      }
+
+      window.requestAnimationFrame(() => {
+        if (cursorRef.current) {
+          cursorRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0) translate(-50%, -50%)`
+        }
+        if (followerRef.current) {
+          followerRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0) translate(-50%, -50%)`
+        }
+        // Update background glow position
+        document.documentElement.style.setProperty('--mouse-x', `${clientX}px`)
+        document.documentElement.style.setProperty('--mouse-y', `${clientY}px`)
+      })
+
       const target = e.target as HTMLElement
-      setIsPointer(window.getComputedStyle(target).cursor === 'pointer' || target.tagName === 'A' || target.tagName === 'BUTTON')
+      const isClickable = window.getComputedStyle(target).cursor === 'pointer' || 
+                        target.tagName === 'A' || 
+                        target.tagName === 'BUTTON' ||
+                        target.closest('a') ||
+                        target.closest('button')
+      
+      setIsPointer(!!isClickable)
     }
 
-    const onMouseLeave = () => setIsVisible(false)
-    const onMouseEnter = () => setIsVisible(true)
+    const onMouseLeave = () => {
+      isVisibleRef.current = false
+      if (cursorRef.current) cursorRef.current.style.opacity = '0'
+      if (followerRef.current) followerRef.current.style.opacity = '0'
+    }
 
     window.addEventListener('mousemove', onMouseMove)
     document.body.addEventListener('mouseleave', onMouseLeave)
-    document.body.addEventListener('mouseenter', onMouseEnter)
+    document.body.addEventListener('mouseenter', () => {
+      isVisibleRef.current = true
+      if (cursorRef.current) cursorRef.current.style.opacity = '1'
+      if (followerRef.current) followerRef.current.style.opacity = '1'
+    })
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove)
       document.body.removeEventListener('mouseleave', onMouseLeave)
-      document.body.removeEventListener('mouseenter', onMouseEnter)
     }
-  }, [isVisible])
+  }, [])
 
   if (!mounted) return null
 
   return (
     <>
       <div
-        className={`${styles.cursor} ${isPointer ? styles.pointer : ''} ${!isVisible ? styles.hidden : ''}`}
-        style={{
-          transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
-        }}
+        ref={cursorRef}
+        className={`${styles.cursor} ${isPointer ? styles.pointer : ''}`}
+        style={{ opacity: 0 }}
       />
       <div
-        className={`${styles.cursorFollower} ${isPointer ? styles.pointerFollower : ''} ${!isVisible ? styles.hidden : ''}`}
-        style={{
-          transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
-        }}
+        ref={followerRef}
+        className={`${styles.cursorFollower} ${isPointer ? styles.pointerFollower : ''}`}
+        style={{ opacity: 0 }}
       />
     </>
   )

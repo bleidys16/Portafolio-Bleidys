@@ -48,6 +48,8 @@ export default function ProfileCard() {
             src="/me.jpg"
             alt="Bleidys Larios"
             className={styles.profileImage}
+            decoding="async"
+            loading="lazy"
           />
         </div>
       </div>

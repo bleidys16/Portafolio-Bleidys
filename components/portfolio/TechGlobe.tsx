@@ -113,11 +113,11 @@ export default function TechGlobe() {
       return false
     }
 
-    const generateDotsInPolygon = (feature: any, dotSpacing = 22) => { // Increased spacing from 16 to 22
+    const generateDotsInPolygon = (feature: any, dotSpacing = 28) => { 
       const dots: [number, number][] = []
       const bounds = d3.geoBounds(feature)
       const [[minLng, minLat], [maxLng, maxLat]] = bounds
-      const stepSize = dotSpacing * 0.15 
+      const stepSize = dotSpacing * 0.18 
 
       for (let lng = minLng; lng <= maxLng; lng += stepSize) {
         for (let lat = minLat; lat <= maxLat; lat += stepSize) {
