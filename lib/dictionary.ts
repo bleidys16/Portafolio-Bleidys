@@ -57,7 +57,7 @@ export const dictionary = {
           title: 'VITA-Clinical',
           description: 'Plataforma FullStack de analítica clínica con pipeline ETL, dashboard de KPIs, clasificador de riesgo por Machine Learning (RandomForest) y control de acceso por roles.',
           tags: ['React + Vite', 'Python', 'Machine Learning', 'ETL', 'PostgreSQL'],
-          link: 'https://github.com/bleidys16/VITA-Clinical',
+          link: 'https://vita-clinical.onrender.com/',
           repo: 'https://github.com/bleidys16/VITA-Clinical'
         },
         {
@@ -169,7 +169,7 @@ export const dictionary = {
           title: 'VITA-Clinical',
           description: 'FullStack clinical analytics platform with ETL pipeline, KPI dashboard, Machine Learning risk classifier (RandomForest), and role-based access control.',
           tags: ['React + Vite', 'Python', 'Machine Learning', 'ETL', 'PostgreSQL'],
-          link: 'https://github.com/bleidys16/VITA-Clinical',
+          link: 'https://vita-clinical.onrender.com/',
           repo: 'https://github.com/bleidys16/VITA-Clinical'
         },
         {
