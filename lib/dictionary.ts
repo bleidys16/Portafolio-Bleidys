@@ -54,11 +54,11 @@ export const dictionary = {
           repo: 'https://github.com/bleidys16/CineApp'
         },
         {
-          title: 'Manjares del Campo',
-          description: 'Tienda en línea de productos artesanales del campo colombiano con catálogo y carrito de compras.',
-          tags: ['Next.js', 'TypeScript', 'Tailwind'],
-          link: 'https://manjares-del-campo.vercel.app/',
-          repo: 'https://github.com/bleidys16/ManjaresdelCampo'
+          title: 'VITA-Clinical',
+          description: 'Plataforma FullStack de analítica clínica con pipeline ETL, dashboard de KPIs, clasificador de riesgo por Machine Learning (RandomForest) y control de acceso por roles.',
+          tags: ['React + Vite', 'Python', 'Machine Learning', 'ETL', 'PostgreSQL'],
+          link: 'https://github.com/bleidys16/VITA-Clinical',
+          repo: 'https://github.com/bleidys16/VITA-Clinical'
         },
         {
           title: 'Analyzor',
@@ -166,11 +166,11 @@ export const dictionary = {
           repo: 'https://github.com/bleidys16/CineApp'
         },
         {
-          title: 'Manjares del Campo',
-          description: 'Online store for Colombian artisan products with a product catalog and shopping cart.',
-          tags: ['Next.js', 'TypeScript', 'Tailwind'],
-          link: 'https://manjares-del-campo.vercel.app/',
-          repo: 'https://github.com/bleidys16/ManjaresdelCampo'
+          title: 'VITA-Clinical',
+          description: 'FullStack clinical analytics platform with ETL pipeline, KPI dashboard, Machine Learning risk classifier (RandomForest), and role-based access control.',
+          tags: ['React + Vite', 'Python', 'Machine Learning', 'ETL', 'PostgreSQL'],
+          link: 'https://github.com/bleidys16/VITA-Clinical',
+          repo: 'https://github.com/bleidys16/VITA-Clinical'
         },
         {
           title: 'Analyzor',

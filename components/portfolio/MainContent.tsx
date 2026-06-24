@@ -134,8 +134,8 @@ export default function MainContent() {
               <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.projectImagePlaceholder}>
                 {project.title.toLowerCase().includes('cine') ? (
                   <img src="/cine.png" alt={project.title} className={styles.projectImage} decoding="async" loading="lazy" />
-                ) : project.title.toLowerCase().includes('manjares') ? (
-                  <img src="/manjares.png" alt={project.title} className={styles.projectImage} decoding="async" loading="lazy" />
+                ) : project.title.toLowerCase().includes('vita') ? (
+                  <img src="/vita.png" alt={project.title} className={styles.projectImage} decoding="async" loading="lazy" />
                 ) : project.title.toLowerCase().includes('analyzor') ? (
                   <img src="/analyzor.png" alt={project.title} className={styles.projectImage} decoding="async" loading="lazy" />
                 ) : (
