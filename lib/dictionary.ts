@@ -66,6 +66,13 @@ export const dictionary = {
           tags: ['React + Vite', 'Django + DRF', 'Groq (Llama 3)', 'DuckDB'],
           link: 'https://github.com/bleidys16/Analyzor',
           repo: 'https://github.com/bleidys16/Analyzor'
+        },
+        {
+          title: 'Soportix',
+          description: 'Software Helpdesk para soporte empresarial con automatización de tickets, asignación inteligente por roles y flujos de comunicación centralizados.',
+          tags: ['React + Vite', 'TypeScript', 'Node.js', 'PostgreSQL'],
+          link: 'https://github.com/bleidys16/Soportix',
+          repo: 'https://github.com/bleidys16/Soportix'
         }
       ]
     },
@@ -178,6 +185,13 @@ export const dictionary = {
           tags: ['React + Vite', 'Django + DRF', 'Groq (Llama 3)', 'DuckDB'],
           link: 'https://github.com/bleidys16/Analyzor',
           repo: 'https://github.com/bleidys16/Analyzor'
+        },
+        {
+          title: 'Soportix',
+          description: 'Helpdesk software for enterprise support with ticket automation, intelligent role-based assignment, and centralized communication flows.',
+          tags: ['React + Vite', 'TypeScript', 'Node.js', 'PostgreSQL'],
+          link: 'https://github.com/bleidys16/Soportix',
+          repo: 'https://github.com/bleidys16/Soportix'
         }
       ]
     },
