@@ -22,19 +22,33 @@ export const dictionary = {
     },
     about: {
       title: 'Sobre Mí',
-      p1: '¡Hola! Soy Bleidys Larios, desarrolladora web full stack de Colombia. Actualmente soy Aprendiz SENA en Análisis y Desarrollo de Software y estudiante de tercer semestre de Ingeniería de Software y Datos en la IU Digital de Antioquia.',
+      p1: '¡Hola! Soy Bleidys Larios, desarrolladora web full stack de Colombia. Soy Técnica en Programación de Software, actualmente Aprendiz SENA en Análisis y Desarrollo de Software y estudiante de tercer semestre de Ingeniería de Software y Datos en la IU Digital de Antioquia.',
       p2: 'Me apasiona crear aplicaciones web y móviles funcionales, combinando frontend moderno, arquitecturas backend escalables e inteligencia artificial. Siempre estoy en constante aprendizaje y buscando nuevos desafíos que me permitan seguir creciendo profesionalmente.',
       educationTitle: 'Formación Académica',
       education: [
         {
-          title: 'Análisis y Desarrollo de Software',
-          institution: 'SENA',
-          status: 'Aprendiz SENA'
-        },
-        {
           title: 'Ingeniería de Software y Datos',
           institution: 'IU Digital de Antioquia',
-          status: 'Estudiante · 3.er Semestre'
+          status: 'En curso · 3.er Semestre',
+          year: '2025-2 — Actualidad',
+          completed: false,
+          description: 'Formación profesional enfocada en ingeniería de software, arquitectura de sistemas y ciencia de datos.'
+        },
+        {
+          title: 'Tecnología en Análisis y Desarrollo de Software (ADSO)',
+          institution: 'SENA',
+          status: 'En formación · Aprendiz SENA',
+          year: 'En curso',
+          completed: false,
+          description: 'Desarrollo de software full stack, levantamiento de requerimientos, patrones de diseño y bases de datos.'
+        },
+        {
+          title: 'Técnico en Programación de Software',
+          institution: 'SENA',
+          status: 'Titulada · Culminado',
+          year: 'Graduada',
+          completed: true,
+          description: 'Bases sólidas de algoritmia, lógica de programación, bases de datos y desarrollo de aplicaciones.'
         }
       ],
       techTitle: 'Tecnologías'
@@ -180,19 +194,33 @@ export const dictionary = {
     },
     about: {
       title: 'About Me',
-      p1: "Hello! I'm Bleidys Larios, a full stack web developer from Colombia. I am currently a SENA Apprentice in Software Analysis and Development and a third-semester Software & Data Engineering student at IU Digital de Antioquia.",
+      p1: "Hello! I'm Bleidys Larios, a full stack web developer from Colombia. I am a Software Programming Technician, currently a SENA Apprentice in Software Analysis and Development and a third-semester Software & Data Engineering student at IU Digital de Antioquia.",
       p2: 'I am passionate about creating functional web and mobile applications, combining modern frontends, scalable backend architectures, and artificial intelligence. Always learning and seeking new professional challenges.',
       educationTitle: 'Education & Training',
       education: [
         {
-          title: 'Software Analysis and Development',
-          institution: 'SENA',
-          status: 'SENA Apprentice'
-        },
-        {
           title: 'Software and Data Engineering',
           institution: 'IU Digital de Antioquia',
-          status: 'Student · 3rd Semester'
+          status: 'In Progress · 3rd Semester',
+          year: '2025-2 — Present',
+          completed: false,
+          description: 'Professional degree focused on software engineering, cloud architecture, and data science.'
+        },
+        {
+          title: 'Software Analysis and Development (ADSO)',
+          institution: 'SENA',
+          status: 'In Training · SENA Apprentice',
+          year: 'In Progress',
+          completed: false,
+          description: 'Full stack development, agile methodologies, requirements analysis, and relational databases.'
+        },
+        {
+          title: 'Software Programming Technician',
+          institution: 'SENA',
+          status: 'Graduated · Completed',
+          year: 'Graduated',
+          completed: true,
+          description: 'Strong foundations in programming logic, algorithms, databases, and application development.'
         }
       ],
       techTitle: 'Technologies'

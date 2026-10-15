@@ -17,7 +17,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-accent-purple), transparent);
+  background: linear-gradient(90deg, transparent, #E8A9C4, #E8C9D8, #B9A0C9, transparent);
   animation: scan 3s linear infinite;
 }
 
@@ -50,7 +50,7 @@
 .label {
   font-family: var(--font-heading);
   font-size: 0.85rem;
-  color: var(--color-accent-purple);
+  color: #E8C9D8;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -69,8 +69,9 @@
 }
 
 .input:focus, .textarea:focus {
-  border-color: var(--color-accent-purple);
-  background: rgba(232, 169, 196, 0.06);
+  border-color: #E8A9C4;
+  background: rgba(232, 169, 196, 0.08);
+  box-shadow: 0 0 16px rgba(232, 169, 196, 0.18);
 }
 
 .textarea {
@@ -81,7 +82,7 @@
 .submitBtn {
   margin-top: 0.5rem;
   padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #E8A9C4 0%, #B9A0C9 100%);
+  background: linear-gradient(135deg, #E8A9C4 0%, #B9A0C9 50%, #8D6A91 100%);
   border: none;
   border-radius: 8px;
   color: #151217;
@@ -96,7 +97,8 @@
 .submitBtn:hover:not(:disabled) {
   transform: scale(1.02);
   filter: brightness(1.1);
-  box-shadow: 0 0 20px rgba(232, 169, 196, 0.45);
+  background: linear-gradient(135deg, #f2c0d5 0%, #cbb7da 50%, #a482a8 100%);
+  box-shadow: 0 0 24px rgba(232, 169, 196, 0.5);
 }
 
 .successMsg {

@@ -164,17 +164,7 @@ export default function TechGlobe() {
       const cx = width / 2
       const cy = height / 2
 
-      // 1. Atmosphere Aura / Halo with Rose and Lilac
-      const aura = context.createRadialGradient(cx, cy, currentScale * 0.92, cx, cy, currentScale * 1.15)
-      aura.addColorStop(0, "rgba(232, 169, 196, 0.18)")
-      aura.addColorStop(0.5, "rgba(185, 160, 201, 0.08)")
-      aura.addColorStop(1, "rgba(0, 0, 0, 0)")
-      context.fillStyle = aura
-      context.beginPath()
-      context.arc(cx, cy, currentScale * 1.15, 0, 2 * Math.PI)
-      context.fill()
-
-      // 2. Base Globe Sphere (Plum Obsidian Gradient)
+      // 1. Base Globe Sphere (Plum Obsidian Gradient)
       context.beginPath()
       context.arc(cx, cy, currentScale, 0, 2 * Math.PI)
       const globeGrad = context.createRadialGradient(
@@ -185,15 +175,16 @@ export default function TechGlobe() {
         cy,
         currentScale
       )
-      globeGrad.addColorStop(0, "#261D2B")
-      globeGrad.addColorStop(0.7, "#151217")
-      globeGrad.addColorStop(1, "#0D0A0E")
+      globeGrad.addColorStop(0, "#3a2540")
+      globeGrad.addColorStop(0.45, "#251829")
+      globeGrad.addColorStop(0.8, "#151217")
+      globeGrad.addColorStop(1, "#0d0a0f")
       context.fillStyle = globeGrad
       context.fill()
 
-      // 3. Glowing Globe Perimeter
-      context.strokeStyle = "rgba(232, 169, 196, 0.4)"
-      context.lineWidth = 1.2 * scaleFactor
+      // 2. Crisp perimeter edge without halo
+      context.strokeStyle = "rgba(232, 169, 196, 0.15)"
+      context.lineWidth = 1 * scaleFactor
       context.stroke()
 
       // 4. Optimized Land Dots Rendering (Single batch draw call!)
@@ -385,8 +376,6 @@ export default function TechGlobe() {
   return (
     <div ref={containerRef} className={styles.globeContainer}>
       <canvas ref={canvasRef} className={styles.canvas} />
-      <div className={styles.glow} />
-      <div className={styles.interactiveGlow} />
       {isLoading && <div className={styles.loading}>Cargando Mapa...</div>}
       {error && <div className={styles.error}>{error}</div>}
     </div>

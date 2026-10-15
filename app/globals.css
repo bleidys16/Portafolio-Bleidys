@@ -15,12 +15,21 @@
   --color-text-primary: #F7F4F5;
   --color-text-secondary: #d4c8d8;
   --color-text-muted: #918A91;
-  --color-accent-purple: #E8A9C4; /* Soft Rose / Blush Pink */
-  --color-accent-violet: #B9A0C9; /* Lilac / Soft Lavender */
-  --color-accent-mauve: #8D6A91;  /* Muted Mauve */
-  --color-accent-plum: #5A3D5E;   /* Deep Plum */
-  --color-accent-cream: #E8C9D8;  /* Pastel Pink Cream */
-  --color-accent-gold: #E8A9C4;
+
+  /* The 5 Palette Colors */
+  --c-rose: #E8A9C4;       /* 1. Rose Vibrant */
+  --c-cream-pink: #E8C9D8; /* 2. Pastel Pink Cream */
+  --c-lilac: #B9A0C9;      /* 3. Soft Lilac */
+  --c-mauve: #8D6A91;      /* 4. Muted Mauve */
+  --c-plum: #5A3D5E;       /* 5. Deep Plum */
+
+  --color-accent-purple: var(--c-rose);
+  --color-accent-violet: var(--c-lilac);
+  --color-accent-mauve: var(--c-mauve);
+  --color-accent-plum: var(--c-plum);
+  --color-accent-cream: var(--c-cream-pink);
+  --color-accent-gold: var(--c-rose);
+
   --color-border: rgba(232, 169, 196, 0.12);
   --color-border-hover: rgba(232, 169, 196, 0.28);
   --font-heading: var(--font-pixelify), 'Pixelify Sans', cursive;
@@ -38,9 +47,11 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-bg-primary);
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(232, 169, 196, 0.08), transparent 45%),
-    radial-gradient(circle at 85% 85%, rgba(185, 160, 201, 0.07), transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(90, 61, 94, 0.12), transparent 60%);
+    radial-gradient(circle at 12% 15%, rgba(232, 169, 196, 0.09), transparent 40%),
+    radial-gradient(circle at 88% 30%, rgba(185, 160, 201, 0.08), transparent 45%),
+    radial-gradient(circle at 75% 85%, rgba(141, 106, 145, 0.09), transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(90, 61, 94, 0.14), transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(232, 201, 216, 0.04), transparent 60%);
   background-attachment: fixed;
   color: var(--color-text-primary);
   line-height: 1.6;
@@ -57,7 +68,7 @@ body::before {
   left: -250px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(232, 169, 196, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(232, 169, 196, 0.14) 0%, rgba(185, 160, 201, 0.08) 40%, transparent 70%);
   pointer-events: none;
   z-index: -1;
   will-change: transform;
@@ -89,6 +100,13 @@ button {
   font-family: inherit;
   border: none;
   background: none;
+}
+
+/* Ocultar el cursor nativo (la flechita blanca) para que solo esté el círculo personalizado */
+@media (min-width: 1025px) {
+  *, *::before, *::after, html, body, a, button, input, textarea, select {
+    cursor: none !important;
+  }
 }
 
 input, textarea {

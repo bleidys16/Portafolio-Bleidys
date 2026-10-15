@@ -35,11 +35,15 @@ export function CustomCursor() {
       })
 
       const target = e.target as HTMLElement
-      const isClickable = window.getComputedStyle(target).cursor === 'pointer' || 
-                        target.tagName === 'A' || 
-                        target.tagName === 'BUTTON' ||
-                        target.closest('a') ||
-                        target.closest('button')
+      const isClickable = 
+        target.tagName === 'A' || 
+        target.tagName === 'BUTTON' ||
+        target.tagName === 'INPUT' ||
+        target.tagName === 'TEXTAREA' ||
+        !!target.closest('a') ||
+        !!target.closest('button') ||
+        !!target.closest('[role="button"]') ||
+        target.style.cursor === 'pointer'
       
       setIsPointer(!!isClickable)
     }

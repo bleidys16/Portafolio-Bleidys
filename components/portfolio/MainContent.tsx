@@ -126,19 +126,44 @@ export default function MainContent() {
         {content.about.education && (
           <div className={styles.educationSection}>
             <h4 className={styles.subsectionTitle}>{content.about.educationTitle}</h4>
-            <div className={styles.educationGrid}>
-              {content.about.education.map((edu: { title: string; institution: string; status: string }, index: number) => (
-                <div key={index} className={styles.educationCard}>
-                  <div className={styles.educationIcon}>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
-                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                    </svg>
+            <div className={styles.timeline}>
+              {content.about.education.map((edu: { title: string; institution: string; status: string; year?: string; completed?: boolean; description?: string }, index: number) => (
+                <div key={index} className={styles.timelineItem}>
+                  <div className={styles.timelineTrack}>
+                    <div className={`${styles.timelineNode} ${edu.completed ? styles.timelineNodeCompleted : styles.timelineNodeActive}`}>
+                      {edu.completed ? (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="13" height="13">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        <span className={styles.nodePulse} />
+                      )}
+                    </div>
+                    {index < content.about.education.length - 1 && <div className={styles.timelineLine} />}
                   </div>
-                  <div className={styles.educationDetails}>
-                    <h5 className={styles.educationTitle}>{edu.title}</h5>
-                    <p className={styles.educationInstitution}>{edu.institution}</p>
-                    <span className={styles.educationStatus}>{edu.status}</span>
+
+                  <div className={styles.timelineCard}>
+                    <div className={styles.timelineCardHeader}>
+                      <div>
+                        <h5 className={styles.timelineTitle}>{edu.title}</h5>
+                        <p className={styles.timelineInstitution}>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14" style={{ display: 'inline', marginRight: 6, verticalAlign: '-2px' }}>
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                          </svg>
+                          {edu.institution}
+                        </p>
+                      </div>
+                      <div className={styles.timelineBadges}>
+                        {edu.year && <span className={styles.timelineYear}>{edu.year}</span>}
+                        <span className={`${styles.timelineStatus} ${edu.completed ? styles.statusCompleted : styles.statusActive}`}>
+                          {edu.status}
+                        </span>
+                      </div>
+                    </div>
+                    {edu.description && (
+                      <p className={styles.timelineDescription}>{edu.description}</p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -196,12 +221,7 @@ export default function MainContent() {
                   </div>
                 </a>
                 <div className={styles.projectInfo}>
-                  <div className={styles.projectHeaderRow}>
-                    <h4 className={styles.projectTitle}>{project.title}</h4>
-                    {project.badge && (
-                      <span className={styles.projectBadge}>{project.badge}</span>
-                    )}
-                  </div>
+                  <h4 className={styles.projectTitle}>{project.title}</h4>
                   <p className={styles.projectDescription}>{project.description}</p>
                   <div className={styles.projectTags}>
                     {project.tags.map((tag, tagIndex) => (
