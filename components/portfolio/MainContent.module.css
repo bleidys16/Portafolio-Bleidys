@@ -142,14 +142,14 @@
 .educationCard:hover {
   border-color: var(--color-border-hover);
   transform: translateY(-3px);
-  box-shadow: 0 10px 24px -10px rgba(120, 80, 240, 0.2);
+  box-shadow: 0 10px 24px -10px rgba(232, 169, 196, 0.25);
 }
 
 .educationIcon {
   width: 44px;
   height: 44px;
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.25);
+  background: rgba(232, 169, 196, 0.12);
+  border: 1px solid rgba(232, 169, 196, 0.28);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -397,9 +397,9 @@
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 9999px;
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.35);
-  color: #c084fc;
+  background: rgba(232, 169, 196, 0.14);
+  border: 1px solid rgba(232, 169, 196, 0.35);
+  color: #E8A9C4;
   white-space: nowrap;
   letter-spacing: 0.3px;
   display: inline-flex;
@@ -444,17 +444,19 @@
   gap: 6px;
   padding: 7px 14px;
   background: var(--color-accent-purple);
-  color: white;
+  color: #151217;
   border-radius: 8px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: all var(--transition-fast);
 }
 
 .projectLinkBtn:hover {
-  background: var(--color-accent-violet);
+  background: #f0bcd3;
+  color: #151217;
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(232, 169, 196, 0.35);
 }
 
 .projectLinkBtnGhost {
@@ -466,7 +468,7 @@
 .projectLinkBtnGhost:hover {
   border-color: var(--color-accent-purple);
   color: var(--color-accent-purple);
-  background: transparent;
+  background: rgba(232, 169, 196, 0.08);
 }
 
 .projectLinkBtnApk {
@@ -531,14 +533,14 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-violet));
+  background: linear-gradient(135deg, #8D6A91, #5A3D5E);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 18px;
-  color: white;
+  color: #F7F4F5;
   flex-shrink: 0;
 }
 

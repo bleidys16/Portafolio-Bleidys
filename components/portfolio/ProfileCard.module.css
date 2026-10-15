@@ -56,8 +56,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 3px solid var(--color-accent-purple); /* Borde morado sólido */
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); /* Resplandor exterior */
+  border: 3px solid var(--color-accent-purple); /* Borde rosa sólido */
+  box-shadow: 0 0 22px rgba(232, 169, 196, 0.45); /* Resplandor rosa */
   position: relative;
   z-index: 2;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
@@ -65,7 +65,7 @@
 
 .avatar:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 32px rgba(232, 169, 196, 0.65);
 }
 
 /* Sombra de apoyo para el resplandor */
@@ -74,7 +74,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.3);
+  box-shadow: inset 0 0 15px rgba(232, 169, 196, 0.3);
   pointer-events: none;
 }
 
@@ -184,20 +184,21 @@
 .ctaButton {
   width: 100%;
   padding: 14px 24px;
-  background: var(--color-accent-purple);
-  color: white;
+  background: linear-gradient(135deg, #E8A9C4 0%, #B9A0C9 100%);
+  color: #151217;
   font-family: var(--font-heading);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 12px;
   text-align: center;
   transition: all var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(232, 169, 196, 0.25);
 }
 
 .ctaButton:hover {
-  background: var(--color-accent-violet);
+  background: linear-gradient(135deg, #f0bcd3 0%, #c9b4d8 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+  box-shadow: 0 8px 24px rgba(232, 169, 196, 0.45);
 }
 
 @media (max-width: 1024px) {

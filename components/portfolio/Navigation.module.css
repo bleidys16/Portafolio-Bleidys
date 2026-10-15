@@ -4,10 +4,10 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  background: rgba(17, 17, 17, 0.8);
+  background: rgba(21, 18, 23, 0.85);
   backdrop-filter: blur(12px);
   border: 1px solid var(--color-border);
-  border-radius: 24px; /* Cambiado a estilo squircle de la tarjeta */
+  border-radius: 24px;
   padding: 8px 12px;
   transition: all var(--transition-medium);
   display: flex;
@@ -16,8 +16,8 @@
 }
 
 .nav.scrolled {
-  background: rgba(17, 17, 17, 0.95);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(21, 18, 23, 0.96);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .navList {
@@ -50,18 +50,18 @@
 
 .navLink:hover {
   color: var(--color-accent-purple);
-  background: rgba(168, 85, 247, 0.1); /* Subtle purple background */
+  background: rgba(232, 169, 196, 0.12);
 }
 
-/* Contacto y Active states estilo botón morado completo como en el logo */
+/* Contacto y Active states estilo botón rosa con texto oscuro */
 .navLink.active {
-  color: white;
+  color: #151217;
   background: var(--color-accent-purple);
 }
 
 .navLink.active:hover {
   background: var(--color-accent-violet);
-  color: white;
+  color: #151217;
 }
 
 /* Tooltip / Nombre abajo */
@@ -129,7 +129,7 @@
 
 .langToggle:hover {
   color: var(--color-accent-purple);
-  background: rgba(168, 85, 247, 0.1);
+  background: rgba(232, 169, 196, 0.12);
 }
 
 .langIcon {
