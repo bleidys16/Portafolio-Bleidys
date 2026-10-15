@@ -17,13 +17,26 @@ export const dictionary = {
     hero: {
       title1: 'Elevando ideas al siguiente ',
       highlight: 'nivel digital',
-      description: 'Soy una desarrolladora web apasionada por crear experiencias digitales únicas y funcionales. Me especializo en el desarrollo full stack con tecnologías modernas.',
+      description: 'Desarrolladora Web Full Stack, Aprendiz SENA en Análisis y Desarrollo de Software y estudiante de tercer semestre de Ing. de Software y Datos en la IU Digital de Antioquia.',
       statsLabel: 'Proyectos'
     },
     about: {
       title: 'Sobre Mí',
-      p1: '¡Hola! Soy Bleidys Larios, una desarrolladora web full stack junior de Colombia. Me apasiona crear aplicaciones web que no solo funcionen bien, sino que también ofrezcan una experiencia de usuario excepcional.',
-      p2: 'Actualmente me encuentro expandiendo mis conocimientos en tecnologías cloud y arquitecturas de microservicios. Siempre estoy buscando nuevos desafíos que me permitan crecer profesionalmente.',
+      p1: '¡Hola! Soy Bleidys Larios, desarrolladora web full stack de Colombia. Actualmente soy Aprendiz SENA en Análisis y Desarrollo de Software y estudiante de tercer semestre de Ingeniería de Software y Datos en la IU Digital de Antioquia.',
+      p2: 'Me apasiona crear aplicaciones web y móviles funcionales, combinando frontend moderno, arquitecturas backend escalables e inteligencia artificial. Siempre estoy en constante aprendizaje y buscando nuevos desafíos que me permitan seguir creciendo profesionalmente.',
+      educationTitle: 'Formación Académica',
+      education: [
+        {
+          title: 'Análisis y Desarrollo de Software',
+          institution: 'SENA',
+          status: 'Aprendiz SENA'
+        },
+        {
+          title: 'Ingeniería de Software y Datos',
+          institution: 'IU Digital de Antioquia',
+          status: 'Estudiante · 3.er Semestre'
+        }
+      ],
       techTitle: 'Tecnologías'
     },
     services: {
@@ -162,13 +175,26 @@ export const dictionary = {
     hero: {
       title1: 'Elevating ideas to the next ',
       highlight: 'digital level',
-      description: 'I am a web developer passionate about creating unique and functional digital experiences. I specialize in full stack development with modern web technologies.',
+      description: 'Full Stack Web Developer, SENA Apprentice in Software Analysis and Development, and 3rd semester Software & Data Engineering student at IU Digital de Antioquia.',
       statsLabel: 'Projects'
     },
     about: {
       title: 'About Me',
-      p1: "Hello! I'm Bleidys Larios, a junior full stack web developer from Colombia. I am passionate about creating web applications that not only work well but also offer an exceptional user experience.",
-      p2: "Currently, I am expanding my knowledge in cloud technologies and microservices architectures. I'm always looking for new challenges that allow me to grow professionally.",
+      p1: "Hello! I'm Bleidys Larios, a full stack web developer from Colombia. I am currently a SENA Apprentice in Software Analysis and Development and a third-semester Software & Data Engineering student at IU Digital de Antioquia.",
+      p2: 'I am passionate about creating functional web and mobile applications, combining modern frontends, scalable backend architectures, and artificial intelligence. Always learning and seeking new professional challenges.',
+      educationTitle: 'Education & Training',
+      education: [
+        {
+          title: 'Software Analysis and Development',
+          institution: 'SENA',
+          status: 'SENA Apprentice'
+        },
+        {
+          title: 'Software and Data Engineering',
+          institution: 'IU Digital de Antioquia',
+          status: 'Student · 3rd Semester'
+        }
+      ],
       techTitle: 'Technologies'
     },
     services: {

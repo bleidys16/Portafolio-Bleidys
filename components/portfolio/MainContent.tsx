@@ -123,6 +123,29 @@ export default function MainContent() {
           </p>
         </div>
 
+        {content.about.education && (
+          <div className={styles.educationSection}>
+            <h4 className={styles.subsectionTitle}>{content.about.educationTitle}</h4>
+            <div className={styles.educationGrid}>
+              {content.about.education.map((edu: { title: string; institution: string; status: string }, index: number) => (
+                <div key={index} className={styles.educationCard}>
+                  <div className={styles.educationIcon}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                  </div>
+                  <div className={styles.educationDetails}>
+                    <h5 className={styles.educationTitle}>{edu.title}</h5>
+                    <p className={styles.educationInstitution}>{edu.institution}</p>
+                    <span className={styles.educationStatus}>{edu.status}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <h4 className={styles.subsectionTitle}>{content.about.techTitle}</h4>
         <TechGlobe />
       </RevealSection>
