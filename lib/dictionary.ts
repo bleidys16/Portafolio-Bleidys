@@ -45,34 +45,60 @@ export const dictionary = {
     },
     projects: {
       title: 'Proyectos Destacados',
+      viewProject: 'Ver proyecto',
+      viewRepo: 'Ver repositorio',
       list: [
         {
-          title: 'CineApp',
-          description: 'Aplicación web para explorar películas y series con información detallada, tráilers y reseñas.',
-          tags: ['React', 'API REST', 'CSS Modules'],
-          link: 'https://cine-psi-lilac.vercel.app/',
-          repo: 'https://github.com/bleidys16/CineApp'
-        },
-        {
-          title: 'VITA-Clinical',
-          description: 'Plataforma FullStack de analítica clínica con pipeline ETL, dashboard de KPIs, clasificador de riesgo por Machine Learning (RandomForest) y control de acceso por roles.',
-          tags: ['React + Vite', 'Python', 'Machine Learning', 'ETL', 'PostgreSQL'],
-          link: 'https://vita-clinical.onrender.com/',
-          repo: 'https://github.com/bleidys16/VITA-Clinical'
-        },
-        {
-          title: 'Analyzor',
-          description: 'Herramienta avanzada de análisis de datos con IA para visualizar y procesar conjuntos de datos complejos mediante consultas en lenguaje natural.',
-          tags: ['React + Vite', 'Django + DRF', 'Groq (Llama 3)', 'DuckDB'],
-          link: 'https://github.com/bleidys16/Analyzor',
-          repo: 'https://github.com/bleidys16/Analyzor'
+          title: 'SuperBrix',
+          description: 'App móvil Android + backend para digitalizar el control de tiempos de taller con IA y Looker Studio. 🥈 Proyecto Ganador del 2.° Lugar.',
+          tags: ['React Native', 'Android', 'TypeScript', 'Groq IA'],
+          link: 'https://github.com/bleidys16/SuperBrixApp',
+          repo: 'https://github.com/bleidys16/SuperBrixApp',
+          apk: 'https://github.com/bleidys16/SuperBrixApp/releases',
+          image: '/superbrix.png',
+          fit: 'contain',
+          badge: '🥈 2.° Lugar'
         },
         {
           title: 'Soportix',
-          description: 'Software Helpdesk para soporte empresarial con automatización de tickets, asignación inteligente por roles y flujos de comunicación centralizados.',
-          tags: ['React + Vite', 'TypeScript', 'Node.js', 'PostgreSQL'],
-          link: 'https://github.com/bleidys16/Soportix',
-          repo: 'https://github.com/bleidys16/Soportix'
+          description: 'Helpdesk empresarial para gestión de tickets y control de acceso por roles. Sistema integral con flujos centralizados de soporte.',
+          tags: ['Django REST', 'Angular', 'PostgreSQL', 'JWT'],
+          link: 'https://soportix-1.onrender.com/',
+          repo: 'https://github.com/bleidys16/Soportix',
+          image: '/soportix.png',
+          fit: 'cover',
+          badge: 'Producción'
+        },
+        {
+          title: 'VITA-Clinical',
+          description: 'Gestión clínica con arquitectura CRUD. Django REST, PostgreSQL, Bootstrap y scikit-learn para clasificación de riesgo médico.',
+          tags: ['Django REST', 'PostgreSQL', 'Bootstrap', 'scikit-learn'],
+          link: 'https://vita-clinical.onrender.com/',
+          repo: 'https://github.com/bleidys16/VITA-Clinical',
+          image: '/vita.png',
+          fit: 'cover',
+          badge: 'Machine Learning'
+        },
+        {
+          title: 'Intellixy',
+          description: 'Estudio con IA: quizzes, flashcards y tutor con citas desde tus PDF y apuntes. Web y Android.',
+          tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Capacitor'],
+          link: 'https://intellixy-web.vercel.app',
+          repo: 'https://github.com/bleidys16/Intellixy',
+          apk: 'https://github.com/bleidys16/Intellixy/releases/latest',
+          image: '/intellixy.png',
+          fit: 'cover',
+          badge: 'Web & Android'
+        },
+        {
+          title: 'Analyzor',
+          description: 'Análisis de CSV con visualizaciones y NLP. Python, React y Vite con procesamiento local en navegador.',
+          tags: ['Python', 'React', 'Vite', 'NLP'],
+          link: 'https://analyzor.vercel.app',
+          repo: 'https://github.com/bleidys16/Analyzor',
+          image: '/analyzor.png',
+          fit: 'cover',
+          badge: 'NLP & IA'
         }
       ]
     },
@@ -164,34 +190,60 @@ export const dictionary = {
     },
     projects: {
       title: 'Featured Projects',
+      viewProject: 'View Project',
+      viewRepo: 'View Repository',
       list: [
         {
-          title: 'CineApp',
-          description: 'Web app to explore movies and series with detailed info, trailers, and reviews.',
-          tags: ['React', 'API REST', 'CSS Modules'],
-          link: 'https://cine-psi-lilac.vercel.app/',
-          repo: 'https://github.com/bleidys16/CineApp'
-        },
-        {
-          title: 'VITA-Clinical',
-          description: 'FullStack clinical analytics platform with ETL pipeline, KPI dashboard, Machine Learning risk classifier (RandomForest), and role-based access control.',
-          tags: ['React + Vite', 'Python', 'Machine Learning', 'ETL', 'PostgreSQL'],
-          link: 'https://vita-clinical.onrender.com/',
-          repo: 'https://github.com/bleidys16/VITA-Clinical'
-        },
-        {
-          title: 'Analyzor',
-          description: 'Advanced AI-powered data analysis tool to visualize and process complex datasets through natural language queries.',
-          tags: ['React + Vite', 'Django + DRF', 'Groq (Llama 3)', 'DuckDB'],
-          link: 'https://github.com/bleidys16/Analyzor',
-          repo: 'https://github.com/bleidys16/Analyzor'
+          title: 'SuperBrix',
+          description: 'Android mobile app + backend to digitize shop-floor downtime tracking with AI and Looker Studio. 🥈 2nd Place Winning Project.',
+          tags: ['React Native', 'Android', 'TypeScript', 'Groq AI'],
+          link: 'https://github.com/bleidys16/SuperBrixApp',
+          repo: 'https://github.com/bleidys16/SuperBrixApp',
+          apk: 'https://github.com/bleidys16/SuperBrixApp/releases',
+          image: '/superbrix.png',
+          fit: 'contain',
+          badge: '🥈 2nd Place'
         },
         {
           title: 'Soportix',
-          description: 'Helpdesk software for enterprise support with ticket automation, intelligent role-based assignment, and centralized communication flows.',
-          tags: ['React + Vite', 'TypeScript', 'Node.js', 'PostgreSQL'],
-          link: 'https://github.com/bleidys16/Soportix',
-          repo: 'https://github.com/bleidys16/Soportix'
+          description: 'Enterprise helpdesk for ticket management and role-based access control. Comprehensive system with centralized support workflows.',
+          tags: ['Django REST', 'Angular', 'PostgreSQL', 'JWT'],
+          link: 'https://soportix-1.onrender.com/',
+          repo: 'https://github.com/bleidys16/Soportix',
+          image: '/soportix.png',
+          fit: 'cover',
+          badge: 'Production'
+        },
+        {
+          title: 'VITA-Clinical',
+          description: 'Clinical management with CRUD architecture. Django REST, PostgreSQL, Bootstrap, and scikit-learn for medical risk classification.',
+          tags: ['Django REST', 'PostgreSQL', 'Bootstrap', 'scikit-learn'],
+          link: 'https://vita-clinical.onrender.com/',
+          repo: 'https://github.com/bleidys16/VITA-Clinical',
+          image: '/vita.png',
+          fit: 'cover',
+          badge: 'Machine Learning'
+        },
+        {
+          title: 'Intellixy',
+          description: 'AI study workspace: quizzes, flashcards, and AI tutor with source citations from your PDFs and notes. Web and Android.',
+          tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Capacitor'],
+          link: 'https://intellixy-web.vercel.app',
+          repo: 'https://github.com/bleidys16/Intellixy',
+          apk: 'https://github.com/bleidys16/Intellixy/releases/latest',
+          image: '/intellixy.png',
+          fit: 'cover',
+          badge: 'Web & Android'
+        },
+        {
+          title: 'Analyzor',
+          description: 'CSV data analysis with visualizations and NLP. Python, React, and Vite with client-side computation in the browser.',
+          tags: ['Python', 'React', 'Vite', 'NLP'],
+          link: 'https://analyzor.vercel.app',
+          repo: 'https://github.com/bleidys16/Analyzor',
+          image: '/analyzor.png',
+          fit: 'cover',
+          badge: 'NLP & AI'
         }
       ]
     },

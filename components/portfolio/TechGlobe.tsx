@@ -17,13 +17,15 @@ const TECHS: Tech[] = [
   { name: 'Node.js', slug: 'nodedotjs', color: '339933' },
   { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E' },
   { name: 'HTML5', slug: 'html5', color: 'E34F26' },
-  { name: 'CSS3', slug: 'css3', color: '1572B6' },
+  { name: 'CSS3', slug: 'css', color: '1572B6' },
   { name: 'Git', slug: 'git', color: 'F05032' },
   { name: 'MongoDB', slug: 'mongodb', color: '47A248' },
   { name: 'PostgreSQL', slug: 'postgresql', color: '4169E1' },
   { name: 'Tailwind', slug: 'tailwindcss', color: '06B6D4' },
   { name: 'Figma', slug: 'figma', color: 'F24E1E' },
   { name: 'Python', slug: 'python', color: '3776AB' },
+  { name: 'Django', slug: 'django', color: '092E20' },
+  { name: 'Angular', slug: 'angular', color: 'DD0031' },
   { name: 'Expo', slug: 'expo', color: 'FFFFFF' },
 ]
 
