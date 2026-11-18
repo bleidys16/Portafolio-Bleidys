@@ -38,6 +38,15 @@
   max-width: 600px;
 }
 
+@media (min-width: 1800px) {
+  .content {
+    max-width: 1000px;
+  }
+  .heroDescription {
+    max-width: 720px;
+  }
+}
+
 .stats {
   display: flex;
   gap: 40px;
@@ -118,6 +127,104 @@
   color: var(--color-text-secondary);
   line-height: 1.8;
   margin-bottom: 16px;
+}
+
+/* CV Callout Banner */
+.cvCallout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin-bottom: 34px;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cvCallout:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 6px 24px rgba(232, 169, 196, 0.12);
+  transform: translateY(-2px);
+}
+
+.cvCalloutInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cvCalloutIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(232, 169, 196, 0.12);
+  border: 1px solid rgba(232, 169, 196, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-purple);
+  flex-shrink: 0;
+}
+
+.cvCalloutTitle {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 3px;
+}
+
+.cvCalloutDesc {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cvCalloutBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, #E8A9C4 0%, #B9A0C9 100%);
+  color: #151217;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(232, 169, 196, 0.25);
+  flex-shrink: 0;
+}
+
+.cvCalloutBtn:hover {
+  background: linear-gradient(135deg, #f2c0d5 0%, #cbb7da 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 169, 196, 0.4);
+}
+
+@media (max-width: 640px) {
+  .cvCallout {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .cvCalloutInfo {
+    gap: 12px;
+  }
+
+  .cvCalloutBtn {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 /* Education in About */

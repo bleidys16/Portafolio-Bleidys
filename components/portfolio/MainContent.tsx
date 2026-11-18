@@ -1,6 +1,7 @@
 'use client'
 
 import { useLanguage } from '@/context/LanguageContext'
+import { useCvModal } from '@/context/CvModalContext'
 import { dictionary } from '@/lib/dictionary'
 import styles from './MainContent.module.css'
 import CyberText from './CyberText'
@@ -16,6 +17,7 @@ const skills = [
 
 export default function MainContent() {
   const { language } = useLanguage()
+  const { openCv } = useCvModal()
   const content = dictionary[language]
 
   const stats = [
@@ -121,6 +123,35 @@ export default function MainContent() {
           <p className={styles.aboutText}>
             {content.about.p2}
           </p>
+        </div>
+
+        <div className={styles.cvCallout}>
+          <div className={styles.cvCalloutInfo}>
+            <div className={styles.cvCalloutIcon}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </div>
+            <div>
+              <h5 className={styles.cvCalloutTitle}>{content.about.cvCardTitle || 'Hoja de Vida Actualizada'}</h5>
+              <p className={styles.cvCalloutDesc}>{content.about.cvCardDesc || 'Consulta mi perfil profesional, proyectos destacados, trayectoria y stack técnico completo.'}</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={openCv}
+            className={styles.cvCalloutBtn}
+            aria-label={content.about.viewCv || 'Ver Hoja de Vida'}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <span>{content.about.viewCv || 'Ver Hoja de Vida'}</span>
+          </button>
         </div>
 
         {content.about.education && (

@@ -3,6 +3,7 @@
   justify-content: center;
   min-height: 100vh;
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   padding: 40px;
   gap: 60px;
@@ -10,14 +11,23 @@
 
 .sidebarWrapper {
   position: sticky;
-  top: 80px;
+  top: max(75px, calc(50vh - 230px));
   height: fit-content;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .mainWrapper {
   flex: 1;
   min-width: 0;
+}
+
+@media (min-width: 1800px) {
+  .layout {
+    max-width: 1360px;
+    gap: 70px;
+  }
 }
 
 @media (max-width: 1024px) {

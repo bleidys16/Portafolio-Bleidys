@@ -1,6 +1,7 @@
 'use client'
 
 import { useLanguage } from '@/context/LanguageContext'
+import { useCvModal } from '@/context/CvModalContext'
 import { dictionary } from '@/lib/dictionary'
 import styles from './ProfileCard.module.css'
 
@@ -37,6 +38,7 @@ const socialLinks = [
 
 export default function ProfileCard() {
   const { language } = useLanguage()
+  const { openCv } = useCvModal()
   const content = dictionary[language].profile
 
   return (
@@ -65,11 +67,6 @@ export default function ProfileCard() {
         <span>{content.country}</span>
       </div>
 
-      <div className={styles.status}>
-        <span className={styles.statusIndicator} />
-        <span>{content.status}</span>
-      </div>
-
       <div className={styles.socialLinks}>
         {socialLinks.map((link) => (
           <a
@@ -85,9 +82,26 @@ export default function ProfileCard() {
         ))}
       </div>
 
-      <a href="#contacto" className={styles.ctaButton}>
-        {content.cta}
-      </a>
+      <div className={styles.cardActions}>
+        <button
+          type="button"
+          onClick={openCv}
+          className={styles.cvButton}
+          aria-label={content.viewCv || 'Ver Hoja de Vida'}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
+          <span>{content.viewCv || 'Ver Hoja de Vida'}</span>
+        </button>
+
+        <a href="#contacto" className={styles.ctaButton}>
+          {content.cta}
+        </a>
+      </div>
     </aside>
   )
 }

@@ -28,6 +28,13 @@ export const metadata: Metadata = {
     description: 'Creando aplicaciones web modernas, hermosas y amigables.',
     type: 'website',
   },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    apple: '/apple-icon.png',
+  },
 }
 
 export const viewport: Viewport = {
@@ -37,6 +44,8 @@ export const viewport: Viewport = {
 }
 
 import { CustomCursor } from '@/components/ui/CustomCursor'
+import { CvModalProvider } from '@/context/CvModalContext'
+import CvModal from '@/components/portfolio/CvModal'
 
 export default function RootLayout({
   children,
@@ -47,9 +56,12 @@ export default function RootLayout({
     <html lang="es" className={`${pixelifySans.variable} ${rubik.variable}`}>
       <body>
         <LanguageProvider>
-          <CustomCursor />
-          {children}
-          {process.env.NODE_ENV === 'production' && <Analytics />}
+          <CvModalProvider>
+            <CustomCursor />
+            {children}
+            <CvModal />
+            {process.env.NODE_ENV === 'production' && <Analytics />}
+          </CvModalProvider>
         </LanguageProvider>
       </body>
     </html>

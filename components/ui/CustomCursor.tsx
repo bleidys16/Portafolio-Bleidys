@@ -1,20 +1,41 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useCvModal } from '@/context/CvModalContext'
 import styles from './CustomCursor.module.css'
 
 export function CustomCursor() {
+  const { isOpen: isCvOpen } = useCvModal()
   const [isPointer, setIsPointer] = useState(false)
   const [mounted, setMounted] = useState(false)
   const cursorRef = useRef<HTMLDivElement>(null)
   const followerRef = useRef<HTMLDivElement>(null)
   const isVisibleRef = useRef(false)
 
+  // Hide custom cursor immediately when CV modal opens
+  useEffect(() => {
+    if (isCvOpen) {
+      if (cursorRef.current) cursorRef.current.style.opacity = '0'
+      if (followerRef.current) followerRef.current.style.opacity = '0'
+      isVisibleRef.current = false
+    }
+  }, [isCvOpen])
+
   useEffect(() => {
     setMounted(true)
     
     const onMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e
+      const target = e.target as HTMLElement
+
+      // Si estamos dentro del visor de CV / PDF, ocultar cursor personalizado para usar el normal
+      const isInsideNative = !!target?.closest?.('[data-native-cursor]')
+      if (isInsideNative || isCvOpen) {
+        if (cursorRef.current) cursorRef.current.style.opacity = '0'
+        if (followerRef.current) followerRef.current.style.opacity = '0'
+        isVisibleRef.current = false
+        return
+      }
       
       if (!isVisibleRef.current) {
         isVisibleRef.current = true
@@ -34,7 +55,6 @@ export function CustomCursor() {
         document.documentElement.style.setProperty('--mouse-y', `${clientY}px`)
       })
 
-      const target = e.target as HTMLElement
       const isClickable = 
         target.tagName === 'A' || 
         target.tagName === 'BUTTON' ||
@@ -57,16 +77,18 @@ export function CustomCursor() {
     window.addEventListener('mousemove', onMouseMove)
     document.body.addEventListener('mouseleave', onMouseLeave)
     document.body.addEventListener('mouseenter', () => {
-      isVisibleRef.current = true
-      if (cursorRef.current) cursorRef.current.style.opacity = '1'
-      if (followerRef.current) followerRef.current.style.opacity = '1'
+      if (!isCvOpen) {
+        isVisibleRef.current = true
+        if (cursorRef.current) cursorRef.current.style.opacity = '1'
+        if (followerRef.current) followerRef.current.style.opacity = '1'
+      }
     })
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove)
       document.body.removeEventListener('mouseleave', onMouseLeave)
     }
-  }, [])
+  }, [isCvOpen])
 
   if (!mounted) return null
 

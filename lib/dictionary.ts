@@ -12,7 +12,8 @@ export const dictionary = {
       role: 'Desarrolladora Web Full Stack Junior',
       country: 'Colombia',
       status: 'Disponible para trabajar',
-      cta: 'Hablemos'
+      cta: 'Hablemos',
+      viewCv: 'Ver Hoja de Vida'
     },
     hero: {
       title1: 'Elevando ideas al siguiente ',
@@ -24,6 +25,9 @@ export const dictionary = {
       title: 'Sobre Mí',
       p1: '¡Hola! Soy Bleidys Larios, desarrolladora web full stack de Colombia. Soy Técnica en Programación de Software, actualmente Aprendiz SENA en Análisis y Desarrollo de Software y estudiante de tercer semestre de Ingeniería de Software y Datos en la IU Digital de Antioquia.',
       p2: 'Me apasiona crear aplicaciones web y móviles funcionales, combinando frontend moderno, arquitecturas backend escalables e inteligencia artificial. Siempre estoy en constante aprendizaje y buscando nuevos desafíos que me permitan seguir creciendo profesionalmente.',
+      viewCv: 'Ver Hoja de Vida',
+      cvCardTitle: 'Hoja de Vida Actualizada',
+      cvCardDesc: 'Consulta mi perfil profesional, proyectos destacados, trayectoria y stack técnico completo.',
       educationTitle: 'Formación Académica',
       education: [
         {
@@ -184,7 +188,8 @@ export const dictionary = {
       role: 'Junior Full Stack Web Developer',
       country: 'Colombia',
       status: 'Available for work',
-      cta: "Let's Talk"
+      cta: "Let's Talk",
+      viewCv: 'View Resume'
     },
     hero: {
       title1: 'Elevating ideas to the next ',
@@ -196,6 +201,9 @@ export const dictionary = {
       title: 'About Me',
       p1: "Hello! I'm Bleidys Larios, a full stack web developer from Colombia. I am a Software Programming Technician, currently a SENA Apprentice in Software Analysis and Development and a third-semester Software & Data Engineering student at IU Digital de Antioquia.",
       p2: 'I am passionate about creating functional web and mobile applications, combining modern frontends, scalable backend architectures, and artificial intelligence. Always learning and seeking new professional challenges.',
+      viewCv: 'View Resume',
+      cvCardTitle: 'Updated Resume',
+      cvCardDesc: 'Explore my professional background, key projects, track record and full technical stack.',
       educationTitle: 'Education & Training',
       education: [
         {

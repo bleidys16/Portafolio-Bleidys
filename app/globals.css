@@ -102,10 +102,41 @@ button {
   background: none;
 }
 
-/* Ocultar el cursor nativo (la flechita blanca) para que solo esté el círculo personalizado */
+/* Ocultar el cursor nativo para que solo esté el personalizado,
+   EXCEPTO en la vista de Hoja de Vida / PDF donde se requiere el cursor original */
 @media (min-width: 1025px) {
-  *, *::before, *::after, html, body, a, button, input, textarea, select {
-    cursor: none !important;
+  *:not([data-native-cursor], [data-native-cursor] *),
+  *::before,
+  *::after,
+  html,
+  body {
+    cursor: none;
+  }
+
+  /* Restaurar cursor normal original en el visor de Hoja de Vida / PDF */
+  [data-native-cursor],
+  [data-native-cursor] * {
+    cursor: auto !important;
+  }
+
+  [data-native-cursor] button,
+  [data-native-cursor] a,
+  [data-native-cursor] [role="button"],
+  [data-native-cursor] select,
+  [data-native-cursor] input {
+    cursor: pointer !important;
+  }
+
+  [data-native-cursor] p,
+  [data-native-cursor] h1,
+  [data-native-cursor] h2,
+  [data-native-cursor] h3,
+  [data-native-cursor] h4,
+  [data-native-cursor] h5,
+  [data-native-cursor] span,
+  [data-native-cursor] li,
+  [data-native-cursor] article {
+    cursor: text !important;
   }
 }
 
