@@ -20,8 +20,8 @@ export default function MainContent() {
   const { openCv } = useCvModal()
   const content = dictionary[language]
 
-  const stats = [
-    { number: '+5', label: content.hero.statsLabel },
+  const stats = content.hero.stats || [
+    { number: '+5', label: 'Proyectos' },
   ]
 
   const services = [

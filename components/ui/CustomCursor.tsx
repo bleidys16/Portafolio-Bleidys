@@ -7,6 +7,7 @@ import styles from './CustomCursor.module.css'
 export function CustomCursor() {
   const { isOpen: isCvOpen } = useCvModal()
   const [isPointer, setIsPointer] = useState(false)
+  const isPointerRef = useRef(false)
   const [mounted, setMounted] = useState(false)
   const cursorRef = useRef<HTMLDivElement>(null)
   const followerRef = useRef<HTMLDivElement>(null)
@@ -23,9 +24,26 @@ export function CustomCursor() {
 
   useEffect(() => {
     setMounted(true)
+    let rafPending = false
+    let latestX = 0
+    let latestY = 0
+
+    const updatePosition = () => {
+      rafPending = false
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${latestX}px, ${latestY}px, 0) translate(-50%, -50%)`
+      }
+      if (followerRef.current) {
+        followerRef.current.style.transform = `translate3d(${latestX}px, ${latestY}px, 0) translate(-50%, -50%)`
+      }
+      // Update background glow position
+      document.documentElement.style.setProperty('--mouse-x', `${latestX}px`)
+      document.documentElement.style.setProperty('--mouse-y', `${latestY}px`)
+    }
     
     const onMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e
+      latestX = e.clientX
+      latestY = e.clientY
       const target = e.target as HTMLElement
 
       // Si estamos dentro del visor de CV / PDF, ocultar cursor personalizado para usar el normal
@@ -43,29 +61,26 @@ export function CustomCursor() {
         if (followerRef.current) followerRef.current.style.opacity = '1'
       }
 
-      window.requestAnimationFrame(() => {
-        if (cursorRef.current) {
-          cursorRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0) translate(-50%, -50%)`
-        }
-        if (followerRef.current) {
-          followerRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0) translate(-50%, -50%)`
-        }
-        // Update background glow position
-        document.documentElement.style.setProperty('--mouse-x', `${clientX}px`)
-        document.documentElement.style.setProperty('--mouse-y', `${clientY}px`)
-      })
+      if (!rafPending) {
+        rafPending = true
+        window.requestAnimationFrame(updatePosition)
+      }
 
-      const isClickable = 
+      const isClickable = !!(
         target.tagName === 'A' || 
         target.tagName === 'BUTTON' ||
         target.tagName === 'INPUT' ||
         target.tagName === 'TEXTAREA' ||
-        !!target.closest('a') ||
-        !!target.closest('button') ||
-        !!target.closest('[role="button"]') ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.closest('[role="button"]') ||
         target.style.cursor === 'pointer'
+      )
       
-      setIsPointer(!!isClickable)
+      if (isPointerRef.current !== isClickable) {
+        isPointerRef.current = isClickable
+        setIsPointer(isClickable)
+      }
     }
 
     const onMouseLeave = () => {
@@ -74,7 +89,7 @@ export function CustomCursor() {
       if (followerRef.current) followerRef.current.style.opacity = '0'
     }
 
-    window.addEventListener('mousemove', onMouseMove)
+    window.addEventListener('mousemove', onMouseMove, { passive: true })
     document.body.addEventListener('mouseleave', onMouseLeave)
     document.body.addEventListener('mouseenter', () => {
       if (!isCvOpen) {

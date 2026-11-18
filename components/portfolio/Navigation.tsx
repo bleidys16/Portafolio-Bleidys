@@ -5,6 +5,8 @@ import { useLanguage } from '@/context/LanguageContext'
 import { dictionary } from '@/lib/dictionary'
 import styles from './Navigation.module.css'
 
+const SECTIONS = ['inicio', 'sobre-mi', 'servicios', 'proyectos', 'testimonios', 'contacto']
+
 export default function Navigation() {
   const { language, toggleLanguage } = useLanguage()
   const content = dictionary[language].nav
@@ -75,35 +77,40 @@ export default function Navigation() {
   ]
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      
-      // Controlar la visibilidad de la barra
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        setIsVisible(false) // Haciendo scroll hacia abajo: ocultar
-      } else if (currentScrollY < lastScrollY.current) {
-        setIsVisible(true) // Haciendo scroll hacia arriba: mostrar
-      }
-      
-      lastScrollY.current = currentScrollY
-      
-      setIsScrolled(currentScrollY > 50)
+      if (!ticking) {
+        ticking = true
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY
+          
+          // Controlar la visibilidad de la barra
+          if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+            setIsVisible(false) // Haciendo scroll hacia abajo: ocultar
+          } else if (currentScrollY < lastScrollY.current) {
+            setIsVisible(true) // Haciendo scroll hacia arriba: mostrar
+          }
+          
+          lastScrollY.current = currentScrollY
+          setIsScrolled(currentScrollY > 50)
 
-      const sections = navItems.map(item => item.href.replace('#', ''))
-      const scrollPosition = window.scrollY + 200
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i])
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i])
-          break
-        }
+          const scrollPosition = currentScrollY + 220
+          for (let i = SECTIONS.length - 1; i >= 0; i--) {
+            const section = document.getElementById(SECTIONS[i])
+            if (section && section.offsetTop <= scrollPosition) {
+              setActiveSection(SECTIONS[i])
+              break
+            }
+          }
+          ticking = false
+        })
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [navItems])
+  }, [])
 
   return (
     <div className={styles.wrapper}>

@@ -279,7 +279,19 @@ export default function TechGlobe() {
       }
     }
 
+    let isVisible = true
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting
+      },
+      { threshold: 0.05 }
+    )
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
     const rotateTimer = d3.timer(() => {
+      if (!isVisible) return
       if (!isDraggingRef.current) {
         const targetSpeed = isHoveredRef.current ? 0.08 : 0.32
         velocityRef.current[0] += (targetSpeed - velocityRef.current[0]) * 0.04
@@ -361,6 +373,7 @@ export default function TechGlobe() {
     loadWorldData()
 
     return () => {
+      observer.disconnect()
       rotateTimer.stop()
       canvas.removeEventListener("mousedown", handleMouseDown)
       window.removeEventListener("mousemove", handleMouseMove)

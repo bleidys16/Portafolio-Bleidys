@@ -19,7 +19,10 @@ export const dictionary = {
       title1: 'Elevando ideas al siguiente ',
       highlight: 'nivel digital',
       description: 'Desarrolladora Web Full Stack, Aprendiz SENA en Análisis y Desarrollo de Software y estudiante de tercer semestre de Ing. de Software y Datos en la IU Digital de Antioquia.',
-      statsLabel: 'Proyectos'
+      stats: [
+        { number: '+5', label: 'Proyectos Full Stack' },
+        { number: '10+', label: 'Tecnologías Dominadas' }
+      ]
     },
     about: {
       title: 'Sobre Mí',
@@ -195,7 +198,10 @@ export const dictionary = {
       title1: 'Elevating ideas to the next ',
       highlight: 'digital level',
       description: 'Full Stack Web Developer, SENA Apprentice in Software Analysis and Development, and 3rd semester Software & Data Engineering student at IU Digital de Antioquia.',
-      statsLabel: 'Projects'
+      stats: [
+        { number: '+5', label: 'Full Stack Projects' },
+        { number: '10+', label: 'Technologies Mastered' }
+      ]
     },
     about: {
       title: 'About Me',

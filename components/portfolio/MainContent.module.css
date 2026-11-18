@@ -22,6 +22,7 @@
   line-height: 1.1;
   margin-bottom: 20px;
   color: var(--color-text-primary);
+  min-height: 135px;
 }
 
 .highlight {
@@ -49,50 +50,57 @@
 
 .stats {
   display: flex;
-  gap: 40px;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 10px;
 }
 
 .statItem {
   display: flex;
   flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
 }
 
 .statNumber {
-  font-family: var(--font-heading);
-  font-size: 40px;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
   color: var(--color-text-primary);
+  line-height: 1.1;
+  background: linear-gradient(135deg, #F7F4F5 0%, #E8A9C4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .statLabel {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  line-height: 1.35;
+  font-weight: 500;
 }
 
 /* Section Styles */
 .section {
   margin-bottom: 60px;
   padding-top: 20px;
-  content-visibility: auto; /* Optimization for scroll performance */
-  contain-intrinsic-size: 1px 500px;
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px); /* Reduced movement for smoother feel */
-  filter: blur(4px); /* Reduced blur from 8px to 4px for performance */
-  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(22px);
+  transition: opacity 0.45s ease-out, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 .visible {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
 .sectionTitle {
